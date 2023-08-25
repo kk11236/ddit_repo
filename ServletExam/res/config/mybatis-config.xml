@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ <!-- 얘가 JDBCUtil에서 conn 역할? 환경 설정? -->
+ 
+ <!-- 케넥션을 매번 맺고 끝는 게 너무 비효율 적이라, 미리 한 5개 만들어 놓고? 필요할 때 마다 꺼내온다? 그런 느낌? << 이게 POOL?
+	 왜? why? DB는 여러사람이 쓰기 때문에 메모리 관리? 가 중요함.-->
+	 
+<configuration>				<!-- 이게 하나의 커넥션 구조? -->
+
+	<!-- properties파일에 설정 정보를 넣어 놓고 그걸로 연결 하는 것. -->
+	<properties resource="db.properties"/>
+	
+	<!-- 경로에 별명을 alias해서 쓸 때 마다 mvo만 쓸 수 있게 함. -->
+	<typeAliases>
+		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="mvo"/>
+	</typeAliases>
+
+	<environments default="dev">
+		<environment id="dev">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 쿼리를 작성한 xml 경로를 알려줘야함. -->
+	<!-- sql문들이 저장 되어 있는 mapper 파일을 불러 오기 위해 환경설정을 해주는 것. -->
+	<mappers>
+		<mapper resource="mappers/member.xml"/>
+	</mappers>
+</configuration>
+
+
