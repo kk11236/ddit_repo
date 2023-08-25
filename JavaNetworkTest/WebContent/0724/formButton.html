@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" href="../images/check.png">
+<style>
+span{
+	display : inline-block;
+	width : 100px;
+	heighy : 30px;
+}
+
+</style>
+
+<script>
+	// 사용자 정의 함수 
+	//calc = function () {	}
+	//calc = () => {	}	=> 람다함수(화살표함수),표준number es6
+	
+	function calc() {
+		
+		//var는 같은 이름을 2번 써도 에러가 아님
+		//let은 같은 이름을 2번 쓰면 에러가 생김 (중복된 이름(vprice) 2개 불가)
+		/*
+		//id = price요소 검색
+		var vprice = document.getElementById('price');
+		var vprice = document.querySelector('#price');
+		
+		//id = qty요소 검색
+		var vqty = document.getElementById('qty');
+		var vqty = document.querySelector('#qty');
+		
+		//검색요소에서 값가져오기 <- return타입은 String
+		let priceValue =  vprice.value;
+		let qtyValue = vqty.value;
+		*/
+		
+		let priceValue = document.getElementById('price').value;
+		let qtyValue = document.getElementById('qty').value;
+				
+		//가져온 값으로 계산
+		let res = priceValue * qtyValue;
+		
+		//계산 된 결과값을 출력
+		alert("결과값 : " + res);
+	}
+	
+</script>
+
+</head>
+<body>
+	<pre>
+	
+	type = button인 요소는 기능이 없다
+	기능을 부여하기 위하여 JavaScript가 필요하다
+	
+	</pre>
+
+
+	<form name="input" action="getid.jsp" method="get">
+
+		<span>물품가격:</span> 
+		<input type="number" id="price" value="20000" min="10000" max="100000" 
+				step="100" name="user"><br> 
+		
+		<span>수량:</span>
+		<input type="number" id="qty" name="su"><br> 
+		
+		<!-- <input type="button" value="계산" onclick="alert('hello 10,000원입니다.')" > --> 
+		<input type="button" value="계산" onclick= "calc()"> <!--사용자정의 함수호출  -->
+	</form>
+
+
+
+</body>
+</html>

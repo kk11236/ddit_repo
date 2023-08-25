@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+video {
+	width: 500px;
+	height: 400px;
+}
+
+iframe {
+	width: 80%;
+	height: 300px;
+}
+</style>
+</head>
+<body>
+
+	<video src="../multi/movie.mp4" autoplay controls></video>
+
+	<br>
+	<br>
+
+	<iframe
+		src="https://www.youtube.com/embed/xuexbvO29Gk?autoplay=1&mute=1"
+		title="YouTube video player"></iframe>
+		
+		
+		
+
+		
+</body>
+</html>

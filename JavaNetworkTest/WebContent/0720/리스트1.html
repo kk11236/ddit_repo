@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+ul,li{
+	border : 1px solid blue;
+	margin : 5px;
+}
+
+#circle{
+	list-style-type: circle; 
+}
+
+#square{
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+#uimg{
+	list-style-image: url(../images/check.png);
+/* 	list-style-image: url(https://어쩌고 저쩌고 );		<--- 절대주소 */
+}
+
+#lstyle{
+				/* type,positoin,image   type과 image가 동시네 나타나지는 않는다*/
+	list-style:  circle inside url(../images/check.png);
+}
+</style>
+
+<body>
+	<h3>list-style-type : disk</h3>
+<ul>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>JQuery</li>
+	<li>ajax</li>
+</ul>
+
+	<h3>list-style-type : circle</h3>
+
+<ul id = "circle">
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>jQuery</li>
+	<li>ajax</li>
+</ul>
+
+	<h3>list-style-type : square</h3>
+
+<ul id = "square">
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>jQuery</li>
+	<li>ajax</li>
+</ul>
+
+	<h3>list-style-image : url()</h3>
+	
+<ul id = "uimg">
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>jQuery</li>
+	<li>ajax</li>
+</ul>
+
+	<h3>list-style :  circle inside url(../images/check.png); </h3>
+
+<ul id = "lstyle">
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+	<li>jQuery</li>
+	<li>ajax</li>
+</ul>
+
+
+
+</body>
+</html>

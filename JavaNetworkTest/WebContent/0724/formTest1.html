@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+form {
+
+	border: 2px solid blue;
+	margin : 30px 50px;
+	padding : 20px;
+}
+</style>
+
+</head>
+<body>
+
+	<!--get방식 =  서버로 전송할 때 ?로 정보를 넘겨주는 것,도메인? 주소창에 입력정보가 나옴 -->
+	<!--post방식= 서버로 전송할 때  중요한 데이터가 있을경우 보여지면 안됨으로 post방식으로 전송한다.-->
+	<!--action = 전송 될 서버? method = 방식  -->
+	<!-- request 요청 -> jsp -> response 응답 -->
+
+	<h3>get 방식</h3>
+	
+	<form action="test1.jsp" method="get">
+		아이디 : <input type="text" name="id"> <br> 
+		비밀번호 : <input type="password" name="pass"> <br>
+		<input type="submit">
+		<input type="reset">
+	</form>
+	
+	<h3>post방식</h3>
+	
+	<form action="test1.jsp" method="post">
+		아이디 : <input type="text" name="id"> <br> 
+		비밀번호 : <input type="password" name="pass"> <br>
+		<input type="submit">
+		<input type="reset">
+	</form>
+	
+	
+
+</body>
+</html>

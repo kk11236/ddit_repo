@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<style>
+table{
+
+ 	border : 5px solid blue;
+	margin : 50px;
+	
+}
+
+td{
+	/*가로길이는 th,td같이 적용되지만 세로길이는 td에만 적용 된다.
+	  th는 제목이기때문에 글자가 굵게 설정되어 있다.  */
+	width : 200px;
+	height : 50px;
+	text-align : center;	
+}
+
+th{
+	height : 60px;
+	background-color: gray;
+	color : white;
+	font-size : 1.5em;
+	border-bottom : 2px solid red; 
+	/* border : boder-width, border-style border-color <- 스타일은 필수 항목*/
+	/* border-botton-color : red;  <- 이렇게도 할 수 있음.*/
+}
+
+#tab1{
+	/* border 간격을 합친다?  */
+	border-collapse: collapse; /* 기본 sepqrate; <- 선이 나눠져 있음 */	
+}
+
+#tab2{
+	/* border 간격을 넓힌다. */
+	border-spacing: 20px;
+}
+
+caption{
+	/* border : 1px solid gold; */
+	font-size: 1.3em;
+	/* caption-side: bottom; */
+	margin : 20px;
+}
+
+</style>
+
+<body>
+
+<table border = "1" id = "tab1">
+
+	<caption>VIP 고객리스트</caption>
+
+	<tr>
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>		
+	</tr>
+
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+
+</table>
+
+
+<table border = "1" id = "tab2">
+
+	<caption>블랙리스트 고객</caption>
+
+	<tr>
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>		
+	</tr>
+
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+</table>
+
+</body>
+</html>
