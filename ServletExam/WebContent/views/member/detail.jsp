@@ -31,9 +31,9 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-			<a href="#">[목록]</a>
-			<a href="#">[회원정보 수정]</a>
-			<a href="#">[회원정보 삭제]</a>
+			<a href="list.do">[목록]</a>
+			<a href="./update.do?memId=<%=mv.getMemId() %>">[회원정보 수정]</a>
+			<a href="delete.do?memId=<%=mv.getMemId() %>">[회원정보 삭제]</a>
 			</td>
 		</tr>
 	</table>
