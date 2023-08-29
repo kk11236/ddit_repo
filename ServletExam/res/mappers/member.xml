@@ -26,13 +26,14 @@
  
  <insert id="insertMember" parameterType="kr.or.ddit.member.vo.MemberVO">
 		<!-- MemberVO 얘가 파라미터로 날라오는 걸 알고 mv.getMemId() 이렇게 찾음 == #{memId} --> 
- insert into mymember (mem_id, mem_name, mem_tel, mem_addr, reg_dt) 
- 					values(#{memId}, #{memName}, #{memTel}, #{memAddr}, sysdate)
+ insert into mymember (mem_id, mem_name, mem_tel, mem_addr, atch_file_id, reg_dt) 
+ 					values(#{memId}, #{memName}, #{memTel}, #{memAddr}, #{atchFileId}, sysdate)
  
  </insert>
  
  <update id="updateMember" parameterType="kr.or.ddit.member.vo.MemberVO">
- update mymember set mem_name = #{memName}, mem_addr = #{memAddr}, mem_tel = #{memTel} where mem_id = #{memId}
+ update mymember set mem_name = #{memName}, mem_addr = #{memAddr}, mem_tel = #{memTel},
+ 									 atch_file_id = #{atchFileId} where mem_id = #{memId}
  
  
  </update>
@@ -49,6 +50,7 @@
 		   mem_name as memName,
 		   mem_tel as memTel,
 		   mem_addr as memAddr,
+		   atch_file_id as atchFileId,
 		   reg_dt as regDt from mymember
 
 </select>
@@ -58,6 +60,7 @@
 		   mem_name as memName,
 		   mem_tel as memTel,
 		   mem_addr as memAddr,
+		   atch_file_id as atchFileId,
 		   reg_dt as regDt from mymember where mem_id = #{memId}
 	
 
@@ -72,6 +75,7 @@
 	<result column="mem_name" property="memName"/>
 	<result column="mem_tel" property="memTel"/>
 	<result column="mem_addr" property="memAddr"/>
+	<result column="atch_file_id" property="atchFileId"/>
 	<result column="reg_dt" property="regDt"/>
 </resultMap>
 

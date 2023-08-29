@@ -34,6 +34,7 @@
 	<!-- sql문들이 저장 되어 있는 mapper 파일을 불러 오기 위해 환경설정을 해주는 것. -->
 	<mappers>
 		<mapper resource="mappers/member.xml"/>
+		<mapper resource="mappers/atchFile.xml"/>
 	</mappers>
 </configuration>
 

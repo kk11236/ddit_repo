@@ -29,6 +29,7 @@
 			<th>이름</th>
 			<th>전화번호</th>
 			<th>주소</th>
+			<th>첨부파일ID</th>
 		</tr>
 		
 <%
@@ -46,6 +47,7 @@
 			<td><a href="detail.do?memId=<%=mv.getMemId() %>"><%=mv.getMemName() %></a></td>
 			<td><%=mv.getMemTel() %></td>
 			<td><%=mv.getMemAddr() %></td>
+			<td><%=mv.getAtchFileId() %></td>
 		</tr>
 <%
 		}
@@ -53,7 +55,7 @@
 %>		
 
 	<tr align="center">
-		<td colspan="4"><a href="./insert.do">[회원 등록]</a></td>
+		<td colspan="5"><a href="./insert.do">[회원 등록]</a></td>
 	</tr>
 
 	</table>
