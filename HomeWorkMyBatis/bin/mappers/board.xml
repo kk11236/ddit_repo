@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+
+	<insert id="insertPost" parameterType="bvo">
+		<!-- MemberVO 얘가 파라미터로 날라오는 걸 알고 mv.getMemId() 이렇게 찾음 == #{memId} -->
+		insert into jdbc_board (board_no, board_title, board_writer,
+		board_date, board_content)
+		values(board_seq.nextval, #{title}, #{writer}, sysdate, #{content})
+
+	</insert>
+
+	<update id="updatePost" parameterType="bvo">
+	
+		update jdbc_board set board_title = #{title}, board_content = #{content} where board_writer = #{writer}
+
+	</update>
+
+	<delete id="deletePost" parameterType="String">
+
+		delete from jdbc_board where board_writer = #{writer}
+
+	</delete>
+
+
+	<select id="selectAll" resultType="bvo">
+	
+		select board_no as boardNum,
+			board_title as title,
+			board_writer as writer,
+			board_date as regDt,
+			board_content as content from jdbc_board
+
+
+	</select>
+
+	<select id="getBoard" resultType="bvo">
+		select board_no as boardNum,
+			board_title as title,
+			board_writer as writer,
+			board_date as regDt,
+			board_content as content from jdbc_board where board_writer = #{writer}
+
+	</select>
+
+	<select id="checkWriter" parameterType="String" resultType="int">
+	
+		select count(*)as cnt from jdbc_board where board_writer = #{writer}
+	</select>
+
+	<resultMap type="hw.board.vo.BoardVO" id="bb">
+	
+		<result column="board_no" property="boardNum" />
+		<result column="board_title" property="title" />
+		<result column="board_writer" property="writer" />
+		<result column="board_date" property="regDt" />
+		<result column="board_content" property="content" />
+	</resultMap>
+	
+		<select id="searchBoard" resultMap="bb">
+
+		select * from jdbc_board where 1=1
+
+		<if test="boardNum != null and boardNum != ''">
+			and board_no = #{boardNum}
+		</if>
+		<if test="title != null and title != ''">
+			and board_title = #{title}
+		</if>
+		<if test="writer != null and writer != ''">
+			and board_writer = #{writer}
+		</if>
+		<if test="content != null and content != ''">
+			and board_content like '%' || #{content} || '%'
+		</if>
+
+	</select>
+
+
+</mapper>
+
+

@@ -4,7 +4,7 @@
 
 	<insert id="insertAtchFile" parameterType="kr.or.ddit.comm.vo.AtchFileVO">
 		
-		<selectKey order="BEFORE" keyProperty="atchFileId">
+		<selectKey order="BEFORE" keyProperty="atchFileId" resultType="long">
 			select atch_file_seq.nextval from dual
 		</selectKey>
 		
@@ -42,7 +42,7 @@
 			where atch_file_id = #{atchFileId}),
 		#{fileStreCours},
 		#{streFileNm},
-		#{orignlFileNm},
+		#{orignlFileNm, jdbcType=VARCHAR},
 		#{fileExtsn},
 		#{fileCn},
 		#{fileSize}
@@ -50,14 +50,14 @@
 	
 	</insert>
 	
-	<select id="getAtchFileList" resultMap="dddd">
+	<select id="getAtchFileList" resultType="kr.or.ddit.comm.vo.AtchFileVO">
 	
 		select * from atch_file_detail
 			where atch_file_id = #{atchFileId}	
 	
 	</select>
 	
-	<select id="getAtchFileDetail" resultMap="dddd">
+	<select id="getAtchFileDetail" resultType="fileVO">
 	
 		select * from atch_file_detail
 			where atch_file_id = #{atchFileId}

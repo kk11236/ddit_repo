@@ -2,6 +2,7 @@ package kr.or.ddit.comm.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,9 +37,9 @@ public class AtchFileServiceImpl implements IAtchFileService{
 	
 
 	@Override
-	public AtchFileVO saveAtchFileList(HttpServletRequest req) throws Exception {
+	public AtchFileVO saveAtchFileList(Collection<Part> parts) throws Exception {
 		
-		String uploadPath = "d:/D_Other/upload_files";
+		String uploadPath = "e:/D_Other/upload_files";
 		
 		File uploadDir = new File(uploadPath);
 		if(!uploadDir.exists()) {
@@ -51,7 +52,7 @@ public class AtchFileServiceImpl implements IAtchFileService{
 		
 		//첫번째 파일 인 경우에는  ATCH_FILE 이랑 ATCH_FILE_DETAIL 둘 다 들어가야 하므로 아래 코드 처럼 설계한 것.
 
-			for(Part part : req.getParts()) {
+			for(Part part : parts) {
 				
 				// 파일명 추출
 				String fileName = part.getSubmittedFileName(); 
@@ -88,7 +89,8 @@ public class AtchFileServiceImpl implements IAtchFileService{
 					atchFileVO.setStreFileNm(saveFileName);
 					atchFileVO.setFileSize(fileSize);
 					atchFileVO.setFileExtsn(fileExtension);
-					atchFileVO.setFileCn("");
+					//atchFileVO.setFileCn("");
+					atchFileVO.setOrignlFileNm(orignFileName);
 					
 					// ATCH_FILE_DETAIL 에 저장
 					fileDao.insertAtchDetail(atchFileVO);

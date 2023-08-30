@@ -13,24 +13,9 @@
 	<!-- properties파일에 설정 정보를 넣어 놓고 그걸로 연결 하는 것. -->
 	<properties resource="db.properties"/>
 	
-	<settings>
-	
-		<!-- DB컬럼명을 낙타표기법으로 표기한 속성명과 자동매핑 설정하기 -->
-		<setting name="mapUnderscoreToCamelCase" value="true"/>
-	
-		<!-- 
-		 데이터 등록시 해당 속성값이  존재하지 않으면 (즉, null인 경우..)
-		 부적합한 열 유형 1111 예외 발생함.
-		 이 경우 해당 JDBC 타입을 명시적으로 알려주던지 아래와 같이 NULL속성에 대하여 
-		 특정값으로 자동 설정이 가능함.
-		 -->
-		 <setting name="jdbcTypeForNull" value="NULL"/>
-	</settings>
-	
 	<!-- 경로에 별명을 alias해서 쓸 때 마다 mvo만 쓸 수 있게 함. -->
 	<typeAliases>
-		<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="mvo"/>
-		<typeAlias type="kr.or.ddit.comm.vo.AtchFileVO" alias="fileVO"/>
+		<typeAlias type="hw.board.vo.BoardVO" alias="bvo"/>
 	</typeAliases>
 
 	<environments default="dev">
@@ -48,8 +33,7 @@
 	<!-- 쿼리를 작성한 xml 경로를 알려줘야함. -->
 	<!-- sql문들이 저장 되어 있는 mapper 파일을 불러 오기 위해 환경설정을 해주는 것. -->
 	<mappers>
-		<mapper resource="mappers/member.xml"/>
-		<mapper resource="mappers/atchFile.xml"/>
+		<mapper resource="mappers/board.xml"/>
 	</mappers>
 </configuration>
 

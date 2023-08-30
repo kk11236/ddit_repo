@@ -1,8 +1,10 @@
 package kr.or.ddit.comm.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 
 import kr.or.ddit.comm.vo.AtchFileVO;
 
@@ -13,7 +15,7 @@ public interface IAtchFileService {
 	 * @param req Part정보를 꺼내기 위한 요청객체
 	 * @return atchFileId를 담고 있는 AtchFileVO객체
 	 */
-	public AtchFileVO saveAtchFileList(HttpServletRequest req) throws Exception;
+	public AtchFileVO saveAtchFileList(Collection<Part>parts) throws Exception;
 	
 	/**
 	 * 첨부파일 목록 조회하기
