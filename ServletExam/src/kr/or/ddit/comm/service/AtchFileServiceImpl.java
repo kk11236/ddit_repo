@@ -65,7 +65,6 @@ public class AtchFileServiceImpl implements IAtchFileService{
 						// ATCH_FILE 에 저장
 						atchFileVO = new AtchFileVO();
 						fileDao.insertAtchFile(atchFileVO);
-						
 					}
 					
 					String orignFileName = fileName; // 파일명
